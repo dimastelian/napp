@@ -10,6 +10,7 @@
         .command('api', 'Run the REST API server')
         .command('web', 'Run the Express Web Server')
         .command('tool', 'Run tool')
+        .command('csbot', 'Run CSBOT')
         ;
 
     program.parse(process.argv);

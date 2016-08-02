@@ -70,6 +70,10 @@ var Registry = {
     },
     set: function(name, namespace)
     {
+        if(typeof namespace === 'object')
+        {
+            namespace[name] = repo[name];
+        }
         if(exportObject)
         {
             if(namespace)

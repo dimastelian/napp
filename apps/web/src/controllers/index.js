@@ -8,7 +8,11 @@
     // e.g. loading 'MainController.js' with Controller.autoload('Main', __dirname)
     //          => var controller = new Controller.Main.MainController()
 
-    Controller.autoload("Web", __dirname, function(controller, info, file){
+    // initialize the Controller.Web "namespace";
+    if(!Controller.Web)
+        Controller.Web = {};
+
+    Controller.autoload(Controller.Web, __dirname, function(controller, info, file){
         //
     });
 

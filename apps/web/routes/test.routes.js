@@ -25,6 +25,7 @@
 
     // use the express router directly to call a controller.
     router.get('/from_express_router', function(req, res, next) {
+        // the controller is autoloaded into the Web "namespace" using the Controller.autoload() function
         Controller.call(Controller.Web.TestController, 'testMethod', req, res, next);
     });
 
