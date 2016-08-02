@@ -1,7 +1,16 @@
 ;(function() {
     'use strict';
 
+    // ensure R is loaded
+    require('../util/R');
+
     R.initApp('web', 'apps/web');
+
+    if(!process.env.WEB_PORT)
+        process.env.WEB_PORT = 3000;
+
+    if(!process.env.WEB_ENV)
+        process.env.WEB_ENV = 'production';
 
     const express = require('express');
 

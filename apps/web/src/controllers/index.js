@@ -12,6 +12,7 @@
     if(!Controller.Web)
         Controller.Web = {};
 
+    // Will load src/controllers/TestController.js as Controller.Web.TestController;
     Controller.autoload(Controller.Web, __dirname, function(controller, info, file){
         //
     });
