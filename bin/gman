@@ -4,15 +4,24 @@
     'use strict';
 
     var program = require('commander');
+    var _ = require('lodash');
 
-    program
-        .version('0.0.1')
-        .command('api', 'Run the REST API server')
-        .command('web', 'Run the Express Web Server')
-        .command('tool', 'Run tool')
-        .command('csbot', 'Run CSBOT')
-        ;
+    var apps = require('../config/apps.json');
+
+    program.version('0.0.1');
+
+    program.option("-a --app <app>", "Run an app from the apps directory");
+
+    _.forEach(apps, function(app, key){
+        program.command(key, app.description || "Run "+app.name+" app. --help for details.");
+    })
+
 
     program.parse(process.argv);
+
+    if(program.app)
+    {
+        require('../apps/'+program.app+"/bin");
+    }
 
 }());
